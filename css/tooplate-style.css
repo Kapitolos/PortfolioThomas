@@ -34,10 +34,24 @@ button {
 
 h2 {
   font-size: 2.4rem;
+  font-family: 'Cinzel', serif;
 }
 
 h3 {
   font-size: 1.3rem;
+  color: rgb(155, 203, 235);
+  font-family: 'Noto Serif JP', serif;
+}
+
+#made {
+  text-align: center;
+  font-size: 1rem;
+  font-family: 'Noto Serif JP', serif;
+  color: rgb(214, 171, 91);
+}
+
+#project-title {
+  color: rgb(171, 171, 223);
 }
 
 p {
