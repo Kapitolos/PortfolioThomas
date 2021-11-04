@@ -592,6 +592,10 @@ margin-top: 20%;
   #exbtn1 {
     margin-left: 15%;
   }
+  .navbar-light .navbar-nav .nav-link {
+    color: #000000;
+    background: #5555b8;
+}
 }
 
 @media (min-width: 767px) and (max-width: 992px) {
