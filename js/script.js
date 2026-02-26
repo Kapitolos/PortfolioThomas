@@ -78,6 +78,22 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
+// Section header fade-in: trigger when header enters viewport
+const headerObserverOptions = { threshold: 0, rootMargin: '0px 0px 0px 0px' };
+const headerObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('section-header--in-view');
+        }
+    });
+}, headerObserverOptions);
+
+function isHeaderInViewport(el) {
+    if (!el) return false;
+    const rect = el.getBoundingClientRect();
+    return rect.top < window.innerHeight && rect.bottom > 0;
+}
+
 // Observe elements for animation
 document.addEventListener('DOMContentLoaded', () => {
     const animatedElements = document.querySelectorAll('.project-card, .contact-item, .about-text');
@@ -87,6 +103,36 @@ document.addEventListener('DOMContentLoaded', () => {
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(el);
     });
+
+    // Section headers: fade in when in view (Selected Works, Get In Touch)
+    const projectsHeader = document.getElementById('projects-header');
+    const contactHeader = document.getElementById('contact-header');
+    if (projectsHeader) {
+        headerObserver.observe(projectsHeader);
+        if (isHeaderInViewport(projectsHeader)) projectsHeader.classList.add('section-header--in-view');
+    }
+    if (contactHeader) {
+        headerObserver.observe(contactHeader);
+        if (isHeaderInViewport(contactHeader)) contactHeader.classList.add('section-header--in-view');
+    }
+    // If headers are in view after layout (e.g. small viewport), add class on next frame
+    requestAnimationFrame(() => {
+        if (projectsHeader && isHeaderInViewport(projectsHeader)) projectsHeader.classList.add('section-header--in-view');
+        if (contactHeader && isHeaderInViewport(contactHeader)) contactHeader.classList.add('section-header--in-view');
+    });
+    // Fallback: if a header is in view but still doesn't have the class (e.g. observer delayed), add it
+    setTimeout(() => {
+        if (projectsHeader && !projectsHeader.classList.contains('section-header--in-view') && isHeaderInViewport(projectsHeader)) projectsHeader.classList.add('section-header--in-view');
+        if (contactHeader && !contactHeader.classList.contains('section-header--in-view') && isHeaderInViewport(contactHeader)) contactHeader.classList.add('section-header--in-view');
+    }, 400);
+
+    // On scroll, add class when header is in view (backup if observer misses)
+    function checkSectionHeadersInView() {
+        if (projectsHeader && isHeaderInViewport(projectsHeader)) projectsHeader.classList.add('section-header--in-view');
+        if (contactHeader && isHeaderInViewport(contactHeader)) contactHeader.classList.add('section-header--in-view');
+    }
+    window.addEventListener('scroll', checkSectionHeadersInView);
+    window.addEventListener('resize', checkSectionHeadersInView);
 });
 
 // Scroll event listeners
@@ -254,4 +300,44 @@ function requestTick() {
 }
 
 window.addEventListener('scroll', requestTick);
+
+// Lightbox: open project images in larger view on click
+document.addEventListener('DOMContentLoaded', () => {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.querySelector('.lightbox-img');
+    const lightboxClose = document.querySelector('.lightbox-close');
+    const lightboxBackdrop = document.querySelector('.lightbox-backdrop');
+    const projectImages = document.querySelectorAll('.project-img-clickable');
+
+    function openLightbox(src, alt) {
+        if (!lightbox || !lightboxImg) return;
+        lightboxImg.src = src;
+        lightboxImg.alt = alt;
+        lightbox.classList.add('is-open');
+        lightbox.removeAttribute('hidden');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+        if (!lightbox) return;
+        lightbox.classList.remove('is-open');
+        lightbox.setAttribute('hidden', '');
+        document.body.style.overflow = '';
+    }
+
+    projectImages.forEach(img => {
+        img.addEventListener('click', () => {
+            openLightbox(img.src, img.alt || 'Enlarged project image');
+        });
+    });
+
+    if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+    if (lightboxBackdrop) lightboxBackdrop.addEventListener('click', closeLightbox);
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox && lightbox.classList.contains('is-open')) {
+            closeLightbox();
+        }
+    });
+});
 

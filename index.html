@@ -25,6 +25,14 @@
                 <a href="#projects" class="nav-link">Projects</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
+            <div class="nav-social">
+                <a href="https://github.com/Kapitolos/" class="nav-icon-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/thomas-gibson-5b10261b7/" class="nav-icon-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
             <div class="nav-toggle" id="nav-toggle">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -36,10 +44,6 @@
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">About Me</h2>
-                <p class="section-subtitle">Get to know me better</p>
-            </div>
             <div class="about-content">
                 <div class="about-text">
                     <div class="about-image">
@@ -106,16 +110,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="about-links">
-                    <a href="https://github.com/Kapitolos/" class="social-link" target="_blank">
-                        <i class="fab fa-github"></i>
-                        <span>GitHub</span>
-                    </a>
-                    <a href="https://www.linkedin.com/in/thomas-gibson-5b10261b7/" class="social-link" target="_blank">
-                        <i class="fab fa-linkedin"></i>
-                        <span>LinkedIn</span>
-                    </a>
-                </div>
             </div>
         </div>
     </section>
@@ -123,7 +117,7 @@
     <!-- Projects Section -->
     <section id="projects" class="projects">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header section-header-animate-left" id="projects-header">
                 <h2 class="section-title">Selected Works</h2>
                 <p class="section-subtitle">A showcase of my recent projects</p>
             </div>
@@ -131,8 +125,8 @@
                 <!-- Project 1: Toronto Shelter Data -->
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="img/TOAPI.jpg" alt="Toronto API">
-                        <img src="img/TOAPIGraph.jpg" alt="Toronto API Graph">
+                        <img src="img/TOAPI.jpg" alt="Toronto API" class="project-img-clickable">
+                        <img src="img/TOAPIGraph.jpg" alt="Toronto API Graph" class="project-img-clickable">
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Toronto Shelter Data</h3>
@@ -154,7 +148,7 @@
                             <span class="tech-tag"><i class="fas fa-exchange-alt"></i> Axios</span>
                         </div>
                         <div class="project-links">
-                            <a href="#" class="project-link" target="_blank">
+                            <a href="https://kapitolos.github.io/Toronto-Shelter-Data-Client/interactive-map" class="project-link" target="_blank" rel="noopener noreferrer">
                                 <i class="fas fa-external-link-alt"></i>
                                 Live Demo
                             </a>
@@ -169,8 +163,8 @@
                 <!-- Project 2: Singer Songwriter Website -->
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="img/Music-1.jpg" alt="Musician Project">
-                        <img src="img/Music-2.jpg" alt="Musician Project">
+                        <img src="img/Music-1.jpg" alt="Musician Project" class="project-img-clickable">
+                        <img src="img/Music-2.jpg" alt="Musician Project" class="project-img-clickable">
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Singer Songwriter Website</h3>
@@ -208,8 +202,8 @@
                 <!-- Project 3: Blog City -->
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="img/Screenshot 2026-01-02 105057.png" alt="Blog Project">
-                        <img src="img/Screenshot 2026-01-02 111158.png" alt="Blog Project">
+                        <img src="img/Screenshot 2026-01-02 105057.png" alt="Blog Project" class="project-img-clickable">
+                        <img src="img/Screenshot 2026-01-02 111158.png" alt="Blog Project" class="project-img-clickable">
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Blog City</h3>
@@ -231,7 +225,7 @@
                             <span class="tech-tag"><i class="fas fa-key"></i> JWT</span>
                         </div>
                         <div class="project-links">
-                            <a href="#" class="project-link" target="_blank">
+                            <a href="https://blog-city-client.onrender.com" class="project-link" target="_blank" rel="noopener noreferrer">
                                 <i class="fas fa-external-link-alt"></i>
                                 Live Demo
                             </a>
@@ -249,40 +243,37 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header section-header-animate-right" id="contact-header">
                 <h2 class="section-title">Get In Touch</h2>
                 <p class="section-subtitle">Let's work together on your next project</p>
             </div>
             <div class="contact-content">
-                <div class="contact-info">
+                <div class="contact-info contact-info-single">
                     <div class="contact-item">
-                        <div class="contact-icon">
+                        <a href="mailto:thomasmgibson@gmail.com" class="contact-icon contact-icon-btn" aria-label="Send email">
                             <i class="fas fa-envelope"></i>
-                        </div>
+                        </a>
                         <div class="contact-details">
                             <h3>Email</h3>
                             <p>thomasmgibson@gmail.com</p>
-                            <a href="mailto:thomasmgibson@gmail.com" class="contact-link">Send Email</a>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon">
+                        <a href="https://www.linkedin.com/in/thomas-gibson-5b10261b7/" class="contact-icon contact-icon-btn" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                             <i class="fab fa-linkedin"></i>
-                        </div>
+                        </a>
                         <div class="contact-details">
                             <h3>LinkedIn</h3>
                             <p>Connect with me professionally</p>
-                            <a href="https://www.linkedin.com/in/thomas-gibson-5b10261b7/" class="contact-link" target="_blank">View Profile</a>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon">
+                        <a href="https://github.com/Kapitolos/" class="contact-icon contact-icon-btn" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                             <i class="fab fa-github"></i>
-                        </div>
+                        </a>
                         <div class="contact-details">
                             <h3>GitHub</h3>
                             <p>Check out my code</p>
-                            <a href="https://github.com/Kapitolos/" class="contact-link" target="_blank">View Repositories</a>
                         </div>
                     </div>
                 </div>
@@ -303,6 +294,15 @@
             </div>
         </div>
     </footer>
+
+    <!-- Lightbox for project images -->
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Enlarge image" hidden>
+        <button type="button" class="lightbox-close" aria-label="Close">&times;</button>
+        <div class="lightbox-backdrop"></div>
+        <div class="lightbox-content">
+            <img src="" alt="" class="lightbox-img">
+        </div>
+    </div>
 
     <script src="js/script.js"></script>
 </body>
