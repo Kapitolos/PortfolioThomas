@@ -132,9 +132,24 @@ p {
 
 .nav-logo a {
     font-size: 1.5rem;
-    font-weight: 700;
+    font-weight: 300;
     color: #ffffff;
     text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.nav-logo .nav-name {
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.nav-logo .nav-role {
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 0.15rem;
 }
 
 .nav-logo a:hover {
@@ -783,7 +798,7 @@ section {
     display: flex;
     flex-wrap: wrap;
     gap: 0;
-    background: #ffffff;
+    background: #e5e7eb;
     padding: 2rem;
     border-radius: 1rem;
     box-shadow: var(--shadow-md);
